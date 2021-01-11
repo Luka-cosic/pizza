@@ -1,0 +1,76 @@
+.jumbotron{
+    background-image: url("../slike/pizza2.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 250px;
+}
+
+
+img{
+    border-radius: 5px;
+}
+img:hover{
+    
+    box-shadow: 5px 5px 8px  black;
+    
+}
+
+.kopirano{
+    z-index: 1;
+}
+.card{
+    z-index: 0;
+}
+.main{
+   
+    box-shadow: 5px 5px 8px black
+}
+#modalHeader-1{
+   width: 800px;
+    height: 400px;
+}
+
+.andja{
+    position: absolute;
+    left: 20px;
+}
+.broj{
+    width: 20px;
+    height: 20px;
+    background-color:red;
+    border-radius: 50%;
+    line-height:20px;
+    text-align: center;
+    position: absolute;
+    left: 230px;
+    top: 0px;
+    display: none;
+}
+.rightKorpa{
+    border-color:  rgb(14, 14, 43);
+    color: rgb(14, 14, 43)
+}
+
+.korpaHeader{
+    background-color: rgb(14, 14, 43);
+    color: white;
+} 
+.korpaBody{
+    background-color: rgb(51, 51, 56);
+} 
+.leftCard{
+    border-color: rgb(14, 14, 43);
+    color: rgb(14, 14, 43);
+}
+.searchBtn{
+    background-color: rgb(14, 14, 43);;
+    color: white;
+}
+#naruciBtn{
+    display: none;
+}
+
+
+
+
+

@@ -1,8 +1,14 @@
 const express = require("express");
-const router = express.Router()
+const router = express.Router();
 
 
-router.use('/',require('./home'))
+router.use('/',require('./home'));
+
+router.use("/admin",require('./admin'))
+
+router.use('/modul',require('../controllers/modul'));
+
+
 
 
 
