@@ -13,29 +13,28 @@ var io = require('socket.io')(http);
 
 io.on('connection', (socket) => {
     socket.on("client message", function(msg){
+  
             db.messages.find({ email : msg.email},(err,data)=>{
                 let nep =  data[0].msg.filter(function(el){return el.read == "neprocitano"}).length;
                 db.messages.update({email : msg.email},{$set:{nep : nep + 1}});
-                 data[0].msg.push({ msg : msg.msg, from : "client", time : new Date().getHours()+"h : "+new Date().getMinutes()+"min", read : "neprocitano"});
+                 data[0].msg.push({ msg : msg.msg, from : "client", time : msg.time, read : "neprocitano"});
                 db.messages.update({email : msg.email},{$set: {msg : data[0].msg}},(err,data)=>{
                     db.messages.find({email : msg.email},(err,data)=>{
                         io.emit("neprocitane poruke",data[0]);
                     })  
                 })    
             })   
-            msg.time = new Date().getHours()+"h : "+new Date().getMinutes()+"min";
             io.emit('client message',msg );
         
     });
 
     socket.on("admin",function(msg){
         db.messages.find({ email : msg.email},(err,data)=>{
-             data[0].msg.push({ msg : msg.msg, from : "admin", time : new Date().getHours()+"h : "+new Date().getMinutes()+"min"});
+             data[0].msg.push({ msg : msg.msg, from : "admin", time : msg.time});
             db.messages.update({email : msg.email},{$set: {msg : data[0].msg}})    
         })   
-    msg.time = new Date().getHours()+"h : "+new Date().getMinutes()+"min";  
-    console.log(msg);
     
+
     io.emit('admin',msg);
         
     })

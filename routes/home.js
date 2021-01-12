@@ -115,17 +115,22 @@ router.get('/logout',(req, res)=>{
 
 
 router.post('/naruciti',(req, res)=>{
-    db.naruceno.insert([
-        {
-        name : req.session.user.name,
-        email : req.session.user.email,
-        time : new Date().getHours() +":"+ new Date().getMinutes(),
-        narudzbina : req.body
-    }
-    ],(err,data)=>{
-    
+    if(req.body.adresa == ""){
         res.redirect('/')
-    })
+    }else{
+        db.naruceno.insert([
+            {
+            name : req.session.user.name,
+            email : req.session.user.email,
+            time : req.body.vreme,
+            narudzbina : req.body
+        }
+        ],(err,data)=>{
+            res.redirect('/')
+        })
+    }
+    
+    
     
 })
 

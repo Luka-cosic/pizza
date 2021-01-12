@@ -71,7 +71,7 @@ $(function () {
     var socket = io();
     $("#chatForm").submit(function (e) {
       e.preventDefault();
-      socket.emit("client message", { msg : $('#m').val(), email : $("#sendBtn").attr("email")});
+      socket.emit("client message", { msg : $('#m').val(), email : $("#sendBtn").attr("email"), time : new Date().getHours()+"h : "+new Date().getMinutes()+"min"});
       $("#m").val("");
       return false;
     });

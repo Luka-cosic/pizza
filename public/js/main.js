@@ -49,6 +49,7 @@ $("#closeMess").on("click", function(){
                 <input class="form-control mr-sm-2 col-10 " style="display: none"   name="kolicina" type="text" value="${parseInt(narucenePice[i].children[1].children[1].innerText)}" >
                 <input class="form-control mr-sm-2 col-10 " style="display: none"   name="dodaci" type="text" value="${narucenePice[i].children[2].innerText}" >
                 <input class="form-control mr-sm-2 col-10 " style="display: none"   name="cena" type="text" value="${narucenePice[i].children[3].innerText}" >
+                <input class="form-control mr-sm-2 col-10 " style="display: none"   name="vreme" type="text" value="${new Date().getHours() +":"+ new Date().getMinutes()}" >
               
         ` 
       }
